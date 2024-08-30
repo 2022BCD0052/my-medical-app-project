@@ -15,8 +15,7 @@ const ServiceCard = ({service}:{service:ServiceProps}) => {
         width={180}
         height={900}
         alt={service.title}
-        // layout="fill"
-        // objectFit="cover"
+        objectFit="cover"
         className="object-cover w-1/3"
       />
       <div className="flex flex-col w-2/3 justify-ce aspect-video">

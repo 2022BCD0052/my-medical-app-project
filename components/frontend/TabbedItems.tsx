@@ -33,11 +33,12 @@ const services = [
   },
 ];
 
+
 const tabs = [
   {
     title: "Popular Services",
     icon: Stethoscope,
-    // content: <ServiceList data={services} />,
+    content: <ServiceList data={services} />,
    
   },
   {
@@ -53,7 +54,7 @@ const tabs = [
   {
     title: "Symptoms",
     icon: MdDashboard,
-    component: null, // No component for this tab
+    content: <ServiceList data={services} />,
   },
 ];
 

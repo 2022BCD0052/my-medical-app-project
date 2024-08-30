@@ -21,7 +21,7 @@ const Hero = () => {
     "Pregnancy Care",
   ];
   return (
-    <div className="bg-blue-950 ">
+    <div className="bg-blue-950 mt-24">
       <div className="relative bg-blue-950  max-w-6xl mx-auto pb-[110px] pt-[50px] dark:bg-dark lg:pt-[50px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
