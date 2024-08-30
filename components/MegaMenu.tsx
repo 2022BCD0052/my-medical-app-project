@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-filename-extension */
 "use client";
 
 import * as React from "react";

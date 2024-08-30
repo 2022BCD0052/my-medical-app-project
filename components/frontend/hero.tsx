@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/no-unescaped-entities */
 import React, { useState } from "react";
 import SearchBar from "./SearchBar";
@@ -21,9 +22,8 @@ const Hero = () => {
     "Pregnancy Care",
   ];
   return (
-    <div className="bg-blue-950 h-[100vh]">
-      {" "}
-      <div className="relative bg-blue-950 max-w-6xl mx-auto pb-[110px] pt-[50px] dark:bg-dark lg:pt-[50px]">
+    <div className="bg-blue-950 ">
+      <div className="relative bg-blue-950  max-w-6xl mx-auto pb-[110px] pt-[50px] dark:bg-dark lg:pt-[50px]">
         <div className="container">
           <div className="-mx-4 flex flex-wrap">
             <div className="w-full px-4 lg:w-5/12">
@@ -61,8 +61,7 @@ const Hero = () => {
                       className="inline-flex items-center  bg-blue-600 rounded-md justify-center px-6 py-3 text-center text-base font-medium text-[#c7c7c7] hover:text-primary "
                     >
                       <span className="mr-2">
-                        <Pill className="flex-shrink-0 h-4 w-4 text-blue-100"/>
-                       
+                        <Pill className="flex-shrink-0 h-4 w-4 text-blue-100" />
                       </span>
                       Need a refil{" "}
                     </a>
@@ -70,23 +69,18 @@ const Hero = () => {
                 </ul>
 
                 <div className="py-4 flex gap-4 pt-8 justify-center items-center">
-                <div className="flex flex-col items-center justify-between">
-                    <span className="font-bold text-gray-50">
-                      600
-                    </span>
+                  <div className="flex flex-col items-center justify-between">
+                    <span className="font-bold text-gray-50">600</span>
                     <span className="text-sm text-gray-400">
                       Active Speciliast
                     </span>
                   </div>
                   <div className="flex flex-col items-center justify-between">
-                    <span className="font-bold text-gray-50">
-                      600
-                    </span>
+                    <span className="font-bold text-gray-50">600</span>
                     <span className="text-sm text-gray-400">
                       Active Speciliast
                     </span>
                   </div>
-
                 </div>
               </div>
             </div>
