@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import React from 'react'
 

@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
 import React from "react";
 import ServiceCard from "@/components/frontend/Services/ServiceCard";
 import {ServiceProps} from "@/types/types";

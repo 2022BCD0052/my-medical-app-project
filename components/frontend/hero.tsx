@@ -1,5 +1,4 @@
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/no-unescaped-entities */
+
 import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import TransitionText from "./TransitionText";

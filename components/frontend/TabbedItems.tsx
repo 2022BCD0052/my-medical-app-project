@@ -37,7 +37,7 @@ const tabs = [
   {
     title: "Popular Services",
     icon: Stethoscope,
-    content: <ServiceList data={services} />,
+    // content: <ServiceList data={services} />,
    
   },
   {

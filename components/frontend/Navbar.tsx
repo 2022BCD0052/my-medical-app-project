@@ -1,6 +1,4 @@
-/* eslint-disable react/jsx-filename-extension */
 'use client'
-
 import { useState } from 'react'
 import {
   Dialog,

@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
 "use client"
 import React from "react";
 import TabbedItems from "./TabbedItems";

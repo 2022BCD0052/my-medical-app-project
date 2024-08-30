@@ -2,16 +2,8 @@
   "extends": "next/core-web-vitals",
   "rules": {
     "react/prop-types": 0,
-    "react/display-name": 0,
-    "react/no-array-index-key": 0,
     "react/no-unescaped-entities": 0,
-    "react/no-unused-prop-types": 0,
-    "react/jsx-no-target-blank": 0,
-    "react/jsx-props-no-spreading": 0,
-    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx"] }],
-    "import/no-unresolved": [2, { "ignore": ["^@/"] }],
-    "import/no-extraneous-dependencies": [2, { "devDependencies": ["**/*.test.js", "**/*.test.jsx"] }]
-
+   
     
 
   }

@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
 import Navbar from "@/components/frontend/Navbar";
 import MegaMenu from "@/components/MegaMenu";
 import React, { ReactNode } from "react";
