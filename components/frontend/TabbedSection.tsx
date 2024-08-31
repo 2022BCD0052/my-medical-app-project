@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import TabbedItems from "./TabbedItems";
 
@@ -10,20 +10,19 @@ const TabbedSection = () => {
           <div className="w-full px-4">
             <div className="mx-auto mb-12 max-w-5xl  text-center lg:mb-20">
               <h2 className="mb-3 text-3xl font-bold leading-[1.2] text-dark dark:text-white sm:text-4xl md:text-[40px]">
-Brouse your doctors By.
+                Brouse your doctors By.
               </h2>
               <p className="text-base text-body-color dark:text-dark-6">
-                We've got you covered with our top-rated doctors and specialists.
-                Book sessions with our expert doctors and specialists today.
-                
+                We've got you covered with our top-rated doctors and
+                specialists. Book sessions with our expert doctors and
+                specialists today.
               </p>
             </div>
           </div>
         </div>
 
         {/* {tabs} */}
-        <TabbedItems/>
-
+        <TabbedItems />
       </div>
     </section>
   );
