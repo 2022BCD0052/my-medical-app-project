@@ -4,16 +4,47 @@ import SectionHeading from "./SectionHeading";
 import Link from "next/link";
 import DoctorCard from "./DoctorCard";
 import { Map } from "lucide-react";
+import DoctorsListCursor from "./DoctorsListCursor";
 
 const DoctorList = ({
   title = "TeleHealth Visit",
   isPerson,
-  className = "bg-pink-100 py-8 lg:py-24 lg:px-24",
+  className = "bg-pink-100 py-8 lg:py-24 lg:px-20",
 }: {
   title?: string;
   isPerson?: boolean;
   className?: string;
 }) => {
+const doctors =[
+  {
+    name:"yogesh"
+  },{
+    name:"yogesh"
+  },{
+    name:"yogesh"
+  },{
+    name:"yogesh"
+  },{
+    name:"yogesh"
+  },{
+    name:"yogesh"
+  },
+  {
+    name:"yogesh"
+  },{
+    name:"yogesh"
+  },{
+    name:"yogesh"
+  },{
+    name:"yogesh"
+  },{
+    name:"yogesh"
+  },{
+    name:"yogesh"
+  },
+
+]
+
   return (
     <div className={`bg-pink-100 py-8 lg:py-24 lg:px-24 ${className}`}>
       <SectionHeading title={title} />
@@ -34,10 +65,12 @@ const DoctorList = ({
           See All
         </Link>
       </div>
-      <div className="py-6 grid lg:grid-cols-3 gap-4">
-        <DoctorCard isPerson={isPerson} />
-        <DoctorCard isPerson={isPerson} />
-        <DoctorCard isPerson={isPerson} />
+      <div className="py-6 ">
+
+
+        <DoctorsListCursor doctors={doctors} isPerson={isPerson}/>
+       
+        
       </div>
     </div>
   );

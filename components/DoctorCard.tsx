@@ -38,11 +38,11 @@ const DoctorCard = ({isPerson= false}:{isPerson?:boolean}) => {
   return (
     <div
       className="border border-gray-200 hover:shadow-inner shadow-xl inline-flex flex-col 
-     bg-white py-6 px-3 rounded-2xl hover:border-gray-400 duration-300 
+     bg-white py-6 px-3  rounded-2xl hover:border-gray-400 duration-300 
      transition-all 
      "
     >
-      <Link className="border-b-2" href={""}>
+      <Link className="border-b-2" href={"/doctors/slug"}>
         <h2 className="uppercase font-bold text-2xl tracking-widest">
           Vijay Patel, pac
         </h2>
@@ -106,8 +106,8 @@ const DoctorCard = ({isPerson= false}:{isPerson?:boolean}) => {
             );
           })}
           <Link
-            href={""}
-            className=" border line-clamp-1 py-2 px-3 gap-4 rounded text-gray-200 bg-blue-900"
+            href={"/doctors/slug"}
+            className=" border text-sm trank line-clamp-1 py-2 px-3 gap-4 rounded text-gray-200 bg-blue-900"
           >
             More Times 
           </Link>
