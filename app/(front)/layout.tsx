@@ -5,13 +5,15 @@ import React, { ReactNode } from "react";
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <div className=" ">
-            <Navbar />
-  
-      <div className=" mx-auto py-1 shadow  w-full fixed  bg-white  z-50 top-[65px]   flex items-center justify-center">
-        <MegaMenu />
+      <div className="">
+        <Navbar />
+
+        <div className=" mx-auto py-1 shadow  w-full fixed  bg-white  z-50 top-[65px]   flex items-center justify-center">
+          <MegaMenu />
+        </div>
       </div>
 
-      {children}
+      <div className="mt-[73px]">{children}</div>
     </div>
   );
 }

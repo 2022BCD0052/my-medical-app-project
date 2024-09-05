@@ -80,6 +80,8 @@ const config = {
   },
   plugins: [require("tailwindcss-animate"),
     flowbite.plugin(),
+    require('@tailwindcss/forms'),
+
 
 
     

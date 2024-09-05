@@ -11,7 +11,6 @@ const Layout = ({children}:{
       <div className='flex'>
          <Sidebar/>
          <div>
-          sdfghj,
          </div>
       </div>
      

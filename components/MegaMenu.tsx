@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { title } from "process";
 import { Description } from "@headlessui/react";
+import { usePathname } from "next/navigation";
 
 
 const megaMenu = [
@@ -228,6 +229,9 @@ const megaMenu = [
 
 
 export default function MegaMenu() {
+ const pathname  = usePathname();
+ if(pathname=='/login') return null
+
   return (
     <NavigationMenu className="flex ">
       <NavigationMenuList className="space-x-4">

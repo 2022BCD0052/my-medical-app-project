@@ -36,7 +36,7 @@ const page = () => {
         </div>
       </div>
       
-      <FixedButton />
+      {/* <FixedButton /> */}
     </div>
   );
 };
