@@ -1,10 +1,18 @@
 "use client";
+import { createUser } from "@/actions/users";
 import { RegisterInputProps } from "@/types/types";
+import { UserRole } from "@prisma/client";
+import { LoaderCircle, LoaderPinwheel } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 import { useFormState } from "react-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
+import toast from "react-hot-toast";
+import { BiLoader } from "react-icons/bi";
 
-export default function RegisterForm() {
+
+export default function RegisterForm({role="USER"}:{role?:UserRole}) {
+
   const {
     register,
     handleSubmit,
@@ -12,9 +20,32 @@ export default function RegisterForm() {
     formState: { errors },
   } = useForm<RegisterInputProps>();
   async function onSubmit(data: RegisterInputProps) {
-    console.log(data);
+    setisLoading(true);
+    data.role = role
+    // console.log(data);
+
+    try {
+      const user = await createUser(data)
+      if (user&& user.status===200){
+        reset();
+        setisLoading(false);
+        alert("User created successfully")
+        console.log("sucess")
+        toast.success("Account created successfully")
+        // navigate to dashboard or home page
+        // Router.push('/')
+      }
+      else{
+        console.log("Failed to create user");
+        setisLoading(false);
+      }
+      console.log("User created successfully", user);
+    } catch (error) {
+      console.log(error)
+    }
   }
 
+  const [isLoading, setisLoading] = useState(false);
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -50,12 +81,11 @@ export default function RegisterForm() {
                   name="firstName"
                   type="text"
                   autoComplete="name"
-                  
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
                 {errors.firstName && (
                   <p className="text-red-500 text-xs italic">
-                   First Name is required
+                    First Name is required
                   </p>
                 )}
               </div>
@@ -79,7 +109,7 @@ export default function RegisterForm() {
                 />
                 {errors.firstName && (
                   <p className="text-red-500 text-xs italic">
-                   Last Name is required
+                    Last Name is required
                   </p>
                 )}
               </div>
@@ -104,7 +134,26 @@ export default function RegisterForm() {
                 />
               </div>
             </div>
+            <div>
+              <label
+                htmlFor="phoneNumber"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                phone Number
+              </label>
+              <div className="mt-2">
+                <input
+                  {...register("phone", { required: true })}
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  required
 
+                  autoComplete="phoneNumber"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
             <div>
               <div className="flex items-center justify-between">
                 <label
@@ -113,14 +162,7 @@ export default function RegisterForm() {
                 >
                   Password
                 </label>
-                <div className="text-sm">
-                  <a
-                    href="#"
-                    className="font-semibold text-indigo-600 hover:text-indigo-500"
-                  >
-                    Forgot password?
-                  </a>
-                </div>
+               
               </div>
               <div className="mt-2">
                 <input
@@ -132,17 +174,30 @@ export default function RegisterForm() {
                   autoComplete="current-password"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
-                
               </div>
             </div>
 
             <div>
-              <button
-                type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Sign up
-              </button>
+              {isLoading ? (
+                  <button
+                  type="submit"
+                  disabled 
+                   className="flex w-full gap-3 items-center justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <LoaderPinwheel className="w-4 h-4 flex-shrink-0 animate-spin"/>
+                    <span>Wait for sometime</span>
+
+                  </button>
+              
+              ) : (
+
+                
+                <button
+                  type="submit"
+                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Sign up
+                </button>
+              )}
             </div>
           </form>
 

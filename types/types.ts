@@ -1,3 +1,5 @@
+import { UserRole } from "@prisma/client";
+
 export type ServiceProps = {
     title: string;
     image: string;
@@ -7,6 +9,13 @@ export type ServiceProps = {
   export type RegisterInputProps = {
     firstName :string;
     lastName: string;
+    email: string;
+    password: string;
+    phone:string;
+    role:UserRole;
+  }
+  export type loginInputProps = {
+ 
     email: string;
     password: string;
   }

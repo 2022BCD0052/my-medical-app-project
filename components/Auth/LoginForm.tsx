@@ -1,6 +1,21 @@
+"use client"
+import { loginInputProps } from "@/types/types";
+import { LucideLoaderPinwheel } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 export default function LoginForm() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<loginInputProps>();
+  async function onSubmit(data: loginInputProps) {
+    console.log(data);
+  }
+  const [isLoading, setisLoading] = useState(false);
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -16,8 +31,8 @@ export default function LoginForm() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form action="#" method="POST" className="space-y-6">
-            <div>
+          <form action="#"   onSubmit={handleSubmit(onSubmit)} method="POST" className="space-y-6">
+          <div>
               <label
                 htmlFor="email"
                 className="block text-sm font-medium leading-6 text-gray-900"
@@ -26,6 +41,7 @@ export default function LoginForm() {
               </label>
               <div className="mt-2">
                 <input
+                  {...register("email", { required: true })}
                   id="email"
                   name="email"
                   type="email"
@@ -35,7 +51,6 @@ export default function LoginForm() {
                 />
               </div>
             </div>
-
             <div>
               <div className="flex items-center justify-between">
                 <label
@@ -55,6 +70,7 @@ export default function LoginForm() {
               </div>
               <div className="mt-2">
                 <input
+                  {...register("password", { required: true })}
                   id="password"
                   name="password"
                   type="password"
@@ -64,14 +80,27 @@ export default function LoginForm() {
                 />
               </div>
             </div>
-
             <div>
-              <button
-                type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Sign in
-              </button>
+              {isLoading ? (
+                  <button
+                  type="submit"
+                  disabled 
+                   className="flex w-full gap-3 items-center justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    <LucideLoaderPinwheel className="w-4 h-4 flex-shrink-0 animate-spin"/>
+                    <span>Wait for sometime</span>
+
+                  </button>
+              
+              ) : (
+
+                
+                <button
+                  type="submit"
+                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Sign up
+                </button>
+              )}
             </div>
           </form>
 
@@ -85,6 +114,7 @@ export default function LoginForm() {
             </Link>
           </p>
         </div>
+
       </div>
     </>
   );
